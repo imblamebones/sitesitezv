@@ -1,0 +1,66 @@
+@use 'variables' as *;
+
+// Mixin for responsive design
+@mixin respond-to($breakpoint) {
+    @if $breakpoint =="md" {
+        @media (min-width: $bp-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint =="lg" {
+        @media (min-width: $bp-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint =="xl" {
+        @media (min-width: $bp-xl) {
+            @content;
+        }
+    }
+}
+
+// Mixin for Buttons (Grade 5 requirement 4)
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: $radius-md;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-base;
+    border: 2px solid transparent;
+    outline: none;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-variant($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+}
+
+@mixin button-outline($border-color, $text-color) {
+    background-color: transparent;
+    border-color: $border-color;
+    color: $text-color;
+
+    &:hover {
+        background-color: $border-color;
+        color: $color-white;
+    }
+}

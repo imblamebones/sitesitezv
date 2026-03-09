@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'base';
+
+@use 'sections/header';
+@use 'sections/mainscreen';
+@use 'sections/advantages';
+@use 'sections/services';
+@use 'sections/pricing';
+@use 'sections/contact';
+@use 'sections/footer';

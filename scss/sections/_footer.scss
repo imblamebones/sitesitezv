@@ -1,0 +1,75 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+    background-color: $color-secondary;
+    color: $color-white;
+    padding-top: 60px;
+
+    &__container {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+
+        @include respond-to("md") {
+            grid-template-columns: 2fr 1fr 1fr;
+        }
+    }
+
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $color-white;
+
+        span {
+            color: $color-primary;
+        }
+    }
+
+    &__desc {
+        color: rgba($color-white, 0.7);
+        max-width: 300px;
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__links {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        a {
+            color: rgba($color-white, 0.7);
+            transition: color $transition-base;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid rgba($color-white, 0.1);
+        padding: 24px 0;
+        text-align: center;
+        color: rgba($color-white, 0.5);
+        font-size: 0.875rem;
+
+        p {
+            margin: 0;
+        }
+    }
+}

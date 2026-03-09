@@ -1,0 +1,56 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.advantages {
+    padding: 60px 0;
+    background-color: $color-white;
+
+    @include respond-to("lg") {
+        padding: 100px 0;
+    }
+
+    &__grid {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr;
+
+        @include respond-to("md") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to("lg") {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__card {
+        padding: 30px;
+        border-radius: $radius-lg;
+        background-color: $color-bg;
+        text-align: center;
+        transition: transform $transition-base, box-shadow $transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $color-primary;
+    }
+
+    &__name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: $color-secondary;
+    }
+
+    &__desc {
+        color: $color-text-light;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,86 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: rgba($color-white, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $color-secondary;
+
+        span {
+            color: $color-primary;
+        }
+    }
+
+    &__nav {
+        display: none; // Default mobile hidden
+
+        @include respond-to("md") {
+            display: block;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        gap: 24px;
+    }
+
+    &__link {
+        font-weight: 500;
+        color: $color-text;
+        transition: $transition-base;
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        // Test states requirement
+        &.is-active {
+            color: $color-primary;
+            font-weight: 600;
+        }
+    }
+
+    .btn {
+        display: none;
+
+        @include respond-to("md") {
+            display: inline-flex;
+        }
+    }
+
+    &__burger {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: $color-secondary;
+            transition: $transition-base;
+        }
+
+        @include respond-to("md") {
+            display: none;
+        }
+    }
+}

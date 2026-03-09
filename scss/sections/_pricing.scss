@@ -1,0 +1,79 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.pricing {
+    padding: 60px 0;
+    background-color: $color-white;
+
+    @include respond-to("lg") {
+        padding: 100px 0;
+    }
+
+    &__table {
+        background-color: $color-white;
+        border-radius: $radius-lg;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border: 1px solid $color-border;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 1px solid $color-border;
+        transition: background-color $transition-base;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover:not(.pricing__row--header) {
+            background-color: $color-bg;
+        }
+
+        &--header {
+            background-color: $color-secondary;
+            color: $color-white;
+            font-weight: 600;
+
+            &:hover {
+                background-color: $color-secondary;
+            }
+        }
+
+        @include respond-to("md") {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    &__col {
+        flex: 1;
+        padding: 8px 0;
+
+        @include respond-to("md") {
+            padding: 0 20px;
+
+            &:first-child {
+                flex: 2;
+            }
+        }
+
+        &--price {
+            font-weight: 700;
+            color: $color-primary;
+
+            .pricing__row--header & {
+                color: $color-white;
+            }
+        }
+    }
+
+    &__note {
+        margin-top: 20px;
+        text-align: center;
+        color: $color-text-light;
+        font-size: 0.875rem;
+    }
+}

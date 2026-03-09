@@ -1,0 +1,40 @@
+// Base Variables
+$font-family-base: 'Inter', sans-serif;
+
+// Colors
+$color-primary: #2563eb;
+$color-primary-dark: #1d4ed8;
+$color-secondary: #0f172a;
+$color-text: #334155;
+$color-text-light: #64748b;
+$color-bg: #f8fafc;
+$color-white: #ffffff;
+$color-border: #e2e8f0;
+
+$color-success: #10b981;
+$color-warning: #f59e0b;
+$color-danger: #ef4444;
+
+// Breakpoints for Grade 4 requirement
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// Container variables
+$container-max-width: 1200px;
+$container-padding: 20px;
+
+// Border radius & transition
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$transition-base: all 0.3s ease;
+
+// Maps/Lists for @each loop (Grade 5 requirement 2)
+$theme-colors: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "warning": $color-warning,
+  "danger": $color-danger
+);

@@ -1,0 +1,110 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-family-base;
+    color: $color-text;
+    background-color: $color-bg;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Container
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+// Section Title
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $color-secondary;
+
+    &--left {
+        text-align: left;
+    }
+
+    @include respond-to("md") {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+}
+
+// Block element modifier Button using @each (Grade 5 Req 2 & 4)
+.btn {
+    @include button-base;
+
+    @each $name, $value in $theme-colors {
+        &--#{$name} {
+            @include button-variant($value, $color-white);
+        }
+
+        &--outline-#{$name} {
+            @include button-outline($value, $value);
+        }
+    }
+
+    // Default Outline
+    &--outline {
+        @include button-outline($color-primary, $color-primary);
+    }
+
+    &--block {
+        display: flex;
+        width: 100%;
+    }
+}
+
+// Badges using @each
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    @each $name, $value in $theme-colors {
+        &--#{$name} {
+            background-color: rgba($value, 0.1);
+            color: $value;
+        }
+    }
+}
+
+// Grid generator using @for loop (Grade 5 Req 1) - Generates utility classes .gap-1 to .gap-5
+@for $i from 1 through 5 {
+    .gap-#{$i} {
+        gap: #{$i * 8}px;
+    }
+}

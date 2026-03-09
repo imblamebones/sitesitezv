@@ -1,0 +1,12 @@
+{
+  "name": "tech-repair",
+  "version": "1.0.0",
+  "description": "Tech Repair Website",
+  "scripts": {
+    "build": "sass scss/styles.scss css/styles.css",
+    "watch": "sass --watch scss/styles.scss:css/styles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
+}

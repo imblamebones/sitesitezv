@@ -1,0 +1,118 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.contact {
+    padding: 60px 0;
+    background-color: $color-bg;
+
+    @include respond-to("lg") {
+        padding: 100px 0;
+    }
+
+    &__container {
+        display: grid;
+        gap: 40px;
+        background-color: $color-white;
+        border-radius: $radius-lg;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        @include respond-to("lg") {
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+    }
+
+    &__info {
+        padding: 40px;
+        background-color: $color-primary;
+        color: $color-white;
+
+        .section-title {
+            color: $color-white;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 40px;
+        font-size: 1.125rem;
+        opacity: 0.9;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            strong {
+                font-weight: 600;
+                opacity: 0.8;
+            }
+
+            a {
+                font-size: 1.125rem;
+                font-weight: 500;
+                transition: opacity $transition-base;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    &__form {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background-color: $color-white;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: $color-secondary;
+    font-size: 0.875rem;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: $transition-base;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+
+    // Active/Focus error state requirement (Grade 4)
+    &.is-error {
+        border-color: $color-danger;
+        background-color: rgba($color-danger, 0.05);
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgba($color-danger, 0.1);
+        }
+    }
+}
